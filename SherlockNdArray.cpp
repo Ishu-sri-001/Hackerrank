@@ -19,26 +19,16 @@ string balancedSums(vector<int> arr) {
     {
         sum=sum+arr[i];
     }
-    long lsum;
-    int j;
+    long lsum=0;
     for (int i=0;i<arr.size();i++)
     {
-        j=0;
-        lsum=0;
-        while(j<=i)
-        {
-            if (i==j && (lsum==(sum-(lsum+arr[j]))))
-            return "YES";
-            else {
-            lsum=lsum+arr[j];
-            if (lsum == (sum-(lsum+arr[i])))
-            return "YES";
-            j++;
-            }
+        lsum=lsum+arr[i-1];
+        if (lsum==(sum-(lsum+arr[i])))
+        return "YES";
+        //else 
         }
+        return "NO";
     }
-    return "NO";
-}
 
 int main()
 {
